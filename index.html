@@ -39,7 +39,11 @@
         <meta name="scooter" content="index, follow" />
         <meta name="boitho.com-dc" content="index, follow" />
         <meta name="sohu-search" content="index, follow" />
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+        <script src="js/article-controller.js"></script>
 
+        
         <!-- Google Analytics -->
         <script>
 
@@ -48,7 +52,7 @@
 
     </head>
   
-    <body>
+    <body ng-app="app" ng-controller="articleCtrl">
         <section id="header">
             <nav class="grid-container">
                 <div class="col-6">
@@ -74,10 +78,5 @@
                 </div>
             </div>
         </footer>
-
-        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>
