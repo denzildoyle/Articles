@@ -69,10 +69,25 @@
                 </div>
             </div>
         </section>
-        <p style="color: #fff">{{}}</p>
-    <div ng-repeat="recommendation in recommendations">
-    {{ recommendation.resolved_title }}
-</div>
+        
+        <section id="recommendation">
+            <div class="grid-container">
+                <div class="recommendation" ng-repeat="recommendation in recommendations">
+                    <div class="col-2">
+                        <img src="{{ recommendation.image.src}}">
+                        <a href="{{recommendation.resolved_url}}">{{recommendation.resolved_url}}</a>
+                        <h1>{{ recommendation.resolved_title }}</h1>
+                        <p>{{ recommendation.excerpt }}</p>
+                        <a href="{{recommendation.resolved_url}}">read more</a>
+                        <a href="">Share via email</a>
+                    </div>
+                    <div class="clearfix" ng-if="$index % 3 == 0"></div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+
         <footer class="grid-container">
             <div class="row">
                 <div class="col-6">
