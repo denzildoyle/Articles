@@ -39,7 +39,7 @@
         <meta name="scooter" content="index, follow" />
         <meta name="boitho.com-dc" content="index, follow" />
         <meta name="sohu-search" content="index, follow" />
-        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
         <script src="js/article-controller.js"></script>
 
@@ -69,7 +69,9 @@
                 </div>
             </div>
         </section>
-        {{recommendations}}
+        <p style="color: #fff">{{recommendations}}</p>
+            <button ng-click="doRequest()">Make JSONP request</button>
+    {{response | json }}
         <footer class="grid-container">
             <div class="row">
                 <div class="col-6">
