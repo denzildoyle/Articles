@@ -69,9 +69,10 @@
                 </div>
             </div>
         </section>
-        <p style="color: #fff">{{recommendations}}</p>
-            <button ng-click="doRequest()">Make JSONP request</button>
-    {{response | json }}
+        <p style="color: #fff">{{}}</p>
+    <div ng-repeat="recommendation in recommendations">
+    {{ recommendation.resolved_title }}
+</div>
         <footer class="grid-container">
             <div class="row">
                 <div class="col-6">
