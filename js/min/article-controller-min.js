@@ -1,1 +1,1 @@
-var app=angular.module("app",[]);app.controller("articleCtrl",function(a,t,l){var p="http://localhost/articles/api.php";l.get(p).then(function(t){a.recommendations=t.data.list})});
+var app=angular.module("app",[]);app.controller("articleCtrl",function(t,a,n){var e="http://localhost/articles/api.php";n.get(e).then(function(a){t.recommendations=a.data.list})}),app.filter("domain",function(){return function(t){var a=document.createElement("a");return a.href=t,a.hostname}});

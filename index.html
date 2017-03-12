@@ -43,7 +43,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
         <script src="js/article-controller.js"></script>
 
-        
         <!-- Google Analytics -->
         <script>
 
@@ -74,15 +73,15 @@
             <div class="grid-container">
                 <div class="recommendation" ng-repeat="recommendation in recommendations">
                     <div class="col-2">
-                        <img src="{{ recommendation.image.src}}">
-                        <a href="{{recommendation.resolved_url}}">{{recommendation.resolved_url}}</a>
+                        <!-- <img ng-show="{{recommendation.has_image == 1}}" src="{{recommendation.image.src}}"> -->
+                        <!-- <img ng-show="{{recommendation.has_image == 0}}" src="https://unsplash.it/250/160/?random"> -->
+                        <a class="domain" href="{{recommendation.resolved_url | domain}}">{{recommendation.resolved_url | domain}}</a>
                         <h1>{{ recommendation.resolved_title }}</h1>
                         <p>{{ recommendation.excerpt }}</p>
-                        <a href="{{recommendation.resolved_url}}">read more</a>
-                        <a href="">Share via email</a>
+                        <a class="button" href="{{recommendation.resolved_url}}">read more</a>
+                        <a class="send-email" href="">Share via email</a>
                     </div>
-                    <div class="clearfix" ng-if="$index % 3 == 0"></div>
-                </div>
+                    <!-- <div class="clearfix" ng-if="$index % 3 == 0"></div> -->
                 </div>
             </div>
         </section>
