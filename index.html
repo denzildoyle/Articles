@@ -71,21 +71,19 @@
         
         <section id="recommendation">
             <div class="grid-container">
-                <div class="recommendation" ng-repeat="recommendation in recommendations">
+                <div class="recommendation" ng-repeat="recommendation in recommendations | toArray:false | orderBy:'-'">
+                    <div class="clearfix" ng-if="$index % 3 == 0"></div>
                     <div class="col-2">
-                        <!-- <img ng-show="{{recommendation.has_image == 1}}" src="{{recommendation.image.src}}"> -->
-                        <!-- <img ng-show="{{recommendation.has_image == 0}}" src="https://unsplash.it/250/160/?random"> -->
+                        <img ng-show="{{recommendation.has_image == 1}}" src="{{recommendation.image.src}}">
                         <a class="domain" href="{{recommendation.resolved_url | domain}}">{{recommendation.resolved_url | domain}}</a>
                         <h1>{{ recommendation.resolved_title }}</h1>
                         <p>{{ recommendation.excerpt }}</p>
                         <a class="button" href="{{recommendation.resolved_url}}">read more</a>
                         <a class="send-email" href="">Share via email</a>
                     </div>
-                    <!-- <div class="clearfix" ng-if="$index % 3 == 0"></div> -->
                 </div>
             </div>
         </section>
-
 
         <footer class="grid-container">
             <div class="row">

@@ -102,6 +102,8 @@
 	content: "";
     display: table;
     clear: both;
+    width: 100%;
+    height: 10px;
 }
 .accent{
 	color: #CD9208;
@@ -292,11 +294,24 @@ section{
 }
 
 .recommendation{
+	.col-2{
+		margin-top: 100px;
+	}
+
 	img{
 		display: block;
 		width: 100%;
 		height: auto;
+	}
+	.article-img{
+		display: block;
+		width: 100%;
+		height: 150px;
 		margin-top: 100px;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
 	}
 	.domain{
 		color: #BF3133;
