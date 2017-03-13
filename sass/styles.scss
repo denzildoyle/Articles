@@ -16,6 +16,9 @@
 	font-family: 'Roboto', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 ::selection {
@@ -32,10 +35,11 @@
 }
 
 /*-- our cleafix hack -- */ 
-.row:before, 
+/*.row:before, */
 .row:after{
     content: "";
-    display: table;
+    /*display: table;*/
+    display: block;
     clear: both;
 }
 
@@ -48,7 +52,6 @@
 }
 
 [class*='col-']{
-	display: block;
     float: left; 
     min-height: 1px; 
     width: 16.66%; 
@@ -60,7 +63,6 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	position: relative;
-
 	.row{
 		margin-left: -17.5px; 
 		margin-right: -17.5px;
@@ -121,6 +123,40 @@ body,html{
 	padding: 0;
 }
 
+nav{
+	border-bottom: 1px solid #252529;
+	padding: 50px 0 10px 0;
+	overflow: auto;
+
+	ul{
+		float: right;
+		margin: 0;
+		padding: 0;
+	}
+	li{
+		list-style: none;
+		float: left;
+		padding: 0 20px;
+		border-right: 1px solid #fff;
+		line-height: 0;
+		&:last-child{
+			border: none;
+			padding-right: 0;
+		}
+	}
+	a{
+		font-size: 10px;
+		line-height: 10px;
+		color: #ffffff;
+		text-decoration: none;
+		text-transform: uppercase;
+		letter-spacing: 1.15px;
+
+		&:hover{
+			color: #efefef;
+		}
+	}
+}
 h1{
 	font-family: 'Bodoni Std';
 	font-weight: normal;
@@ -260,7 +296,7 @@ hr.line{
 	transform: translate(-50%, -50%);
 }
 
-section{
+#header{
 	width: 100%;
 	height: 100%;
 }
@@ -294,24 +330,26 @@ section{
 }
 
 .recommendation{
-	.col-2{
-		margin-top: 100px;
-	}
+	padding-top: 50px;
+    -webkit-transition: ease-out .5s;
+    -moz-transition: ease-out .5s;
+    -o-transition: ease-out .5s;
+    transition: ease-out .5s;
 
+	&.ng-enter 
+      {
+          -webkit-transition: 20s;
+          transition: 20s;
+          opacity:0;
+      }
+      &.ng-enter-active 
+      {
+          opacity:1;
+      }
 	img{
 		display: block;
 		width: 100%;
 		height: auto;
-	}
-	.article-img{
-		display: block;
-		width: 100%;
-		height: 150px;
-		margin-top: 100px;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
 	}
 	.domain{
 		color: #BF3133;
@@ -345,6 +383,11 @@ section{
 		text-transform: uppercase;
 		font-size: 14px;
 		padding: 10px 0;
+		cursor: pointer;
+		&:hover{
+			color: #fff;
+			background-color: darken(#1F1F1F, 1%);
+		}
 	}
 	.send-email{
 		font-size: 10px;
@@ -354,11 +397,12 @@ section{
 		text-transform: uppercase;
 		text-align: center;
 		display: block;
+		cursor: pointer;
 	}
 }
 
 footer{
-	padding-bottom: 100px;
+	padding: 100px 0;
 	i{
 		color: #EE394F;
 	}

@@ -1,12 +1,17 @@
-var app = angular.module('app', []);
+var app = angular.module('app', ['ngProgress']);
 
-app.controller('articleCtrl', function($scope, $location, $http) {
+app.controller('articleCtrl', function($scope, $location, $http,ngProgressFactory) {
+	$scope.progressbar = ngProgressFactory.createInstance();
+	$scope.progressbar.setHeight('3px');
+	$scope.progressbar.setColor('#BF3133');
+	$scope.progressbar.start();
 
 	var url = "http://localhost/articles/api.php";
 
     $http.get(url)
         .then(function(response){
             $scope.recommendations = response.data.list;
+			$scope.progressbar.complete();
         });
 });
 
@@ -34,4 +39,28 @@ app.filter('toArray', function () {
       });
     }
   };
+});
+
+app.filter('trim', function () {
+    return function (value, wordwise, max, tail) {
+        if (!value){return '';}
+
+        max = parseInt(max, 10);
+        if (!max){return value;}
+        if (value.length <= max){ return value;}
+
+        value = value.substr(0, max);
+        if (wordwise) {
+            var lastspace = value.lastIndexOf(' ');
+            if (lastspace !== -1) {
+              //Also remove . and , so its gives a cleaner result.
+              if (value.charAt(lastspace-1) === '.' || value.charAt(lastspace-1) === ',') {
+                lastspace = lastspace - 1;
+              }
+              value = value.substr(0, lastspace);
+            }
+        }
+
+        return value + (tail || ' …');
+    };
 });

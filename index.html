@@ -29,6 +29,7 @@
         <!-- CSS Files comes here -->
         <link rel="stylesheet" href="css/styles.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/ngProgress.css">
 
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />  
@@ -39,10 +40,10 @@
         <meta name="scooter" content="index, follow" />
         <meta name="boitho.com-dc" content="index, follow" />
         <meta name="sohu-search" content="index, follow" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+        
+        <script src="js/ngprogress.min.js"></script>
         <script src="js/article-controller.js"></script>
-
         <!-- Google Analytics -->
         <script>
 
@@ -55,6 +56,10 @@
         <section id="header">
             <nav class="grid-container">
                 <div class="col-6">
+                    <ul>
+                        <li><a href="">Subscribe</a></li>
+                        <li><a href="">About</a></li>
+                    </ul>
                 </div>
             </nav>
 
@@ -71,27 +76,33 @@
         
         <section id="recommendation">
             <div class="grid-container">
-                <div class="recommendation" ng-repeat="recommendation in recommendations | toArray:false | orderBy:'-'">
+                <div ng-if="recommendation" ng-repeat="recommendation in recommendations | toArray:false | orderBy:'-'">
                     <div class="clearfix" ng-if="$index % 3 == 0"></div>
-                    <div class="col-2">
+                    <article class="col-2 recommendation">
                         <img ng-show="{{recommendation.has_image == 1}}" src="{{recommendation.image.src}}">
                         <a class="domain" href="{{recommendation.resolved_url | domain}}">{{recommendation.resolved_url | domain}}</a>
                         <h1>{{ recommendation.resolved_title }}</h1>
                         <p>{{ recommendation.excerpt }}</p>
-                        <a class="button" href="{{recommendation.resolved_url}}">read more</a>
-                        <a class="send-email" href="">Share via email</a>
-                    </div>
+                        <a class="button" href="{{recommendation.resolved_url}}">read article</a>
+                        <a class="send-email" href="mailto:?Subject={{ recommendation.resolved_title }}&body={{recommendation.resolved_title + '%0D%0A %0D%0A' + recommendation.excerpt + '%0D%0A %0D%0A' + recommendation.resolved_url}}">Share via email</a>
+                    </article>
                 </div>
             </div>
         </section>
+
+        <div class="clearfix"></div>
 
         <footer class="grid-container">
             <div class="row">
                 <div class="col-6">
                     <p>Made with <i class="fa fa-heart" aria-hidden="true"></i> in Trinidad &amp; Tobago</p>
-                    <small>Copyright <span id="year"></span> Denzil Doyle</small>
+                    <small>Copyright &#9400; <span id="year"></span> Denzil Doyle</small>
                 </div>
             </div>
         </footer>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+
     </body>
 </html>

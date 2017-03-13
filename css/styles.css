@@ -2334,7 +2334,10 @@
 * {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
 ::selection {
   background: #FEE7B0; }
@@ -2348,10 +2351,11 @@
   max-width: 820px; }
 
 /*-- our cleafix hack -- */
-.row:before,
+/*.row:before, */
 .row:after {
   content: "";
-  display: table;
+  /*display: table;*/
+  display: block;
   clear: both; }
 
 .row {
@@ -2362,7 +2366,6 @@
   position: relative; }
 
 [class*='col-'] {
-  display: block;
   float: left;
   min-height: 1px;
   width: 16.66%;
@@ -2447,6 +2450,33 @@ body, html {
   height: 100%;
   margin: 0;
   padding: 0; }
+
+nav {
+  border-bottom: 1px solid #252529;
+  padding: 50px 0 10px 0;
+  overflow: auto; }
+  nav ul {
+    float: right;
+    margin: 0;
+    padding: 0; }
+  nav li {
+    list-style: none;
+    float: left;
+    padding: 0 20px;
+    border-right: 1px solid #fff;
+    line-height: 0; }
+    nav li:last-child {
+      border: none;
+      padding-right: 0; }
+  nav a {
+    font-size: 10px;
+    line-height: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.15px; }
+    nav a:hover {
+      color: #efefef; }
 
 h1 {
   font-family: 'Bodoni Std';
@@ -2571,7 +2601,7 @@ hr.line {
   width: 100%;
   transform: translate(-50%, -50%); }
 
-section {
+#header {
   width: 100%;
   height: 100%; }
 
@@ -2597,61 +2627,67 @@ section {
   font-size: 20px;
   letter-spacing: 2px; }
 
-.recommendation .col-2 {
-  margin-top: 100px; }
-.recommendation img {
-  display: block;
-  width: 100%;
-  height: auto; }
-.recommendation .article-img {
-  display: block;
-  width: 100%;
-  height: 150px;
-  margin-top: 100px;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; }
-.recommendation .domain {
-  color: #BF3133;
-  font-size: 14px;
-  text-transform: uppercase;
-  word-wrap: break-word;
-  text-align: center;
-  display: block;
-  margin-top: 25px;
-  text-decoration: none; }
-.recommendation h1 {
-  font-size: 26px;
-  line-height: 30px;
-  text-align: center;
-  margin-top: 30px; }
-.recommendation p {
-  text-align: center;
-  font-family: Georgia, "Times New Roman", Serif;
-  font-size: 16px;
-  line-height: 22px; }
-.recommendation .button {
-  display: block;
-  text-align: center;
-  color: #fff;
-  background-color: #1F1F1F;
-  text-decoration: none;
-  margin-top: 30px;
-  text-transform: uppercase;
-  font-size: 14px;
-  padding: 10px 0; }
-.recommendation .send-email {
-  font-size: 10px;
-  margin-top: 25px;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  display: block; }
+.recommendation {
+  padding-top: 50px;
+  -webkit-transition: ease-out .5s;
+  -moz-transition: ease-out .5s;
+  -o-transition: ease-out .5s;
+  transition: ease-out .5s; }
+  .recommendation.ng-enter {
+    -webkit-transition: 20s;
+    transition: 20s;
+    opacity: 0; }
+  .recommendation.ng-enter-active {
+    opacity: 1; }
+  .recommendation img {
+    display: block;
+    width: 100%;
+    height: auto; }
+  .recommendation .domain {
+    color: #BF3133;
+    font-size: 14px;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    text-align: center;
+    display: block;
+    margin-top: 25px;
+    text-decoration: none; }
+  .recommendation h1 {
+    font-size: 26px;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 30px; }
+  .recommendation p {
+    text-align: center;
+    font-family: Georgia, "Times New Roman", Serif;
+    font-size: 16px;
+    line-height: 22px; }
+  .recommendation .button {
+    display: block;
+    text-align: center;
+    color: #fff;
+    background-color: #1F1F1F;
+    text-decoration: none;
+    margin-top: 30px;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 10px 0;
+    cursor: pointer; }
+    .recommendation .button:hover {
+      color: #fff;
+      background-color: #1c1c1c; }
+  .recommendation .send-email {
+    font-size: 10px;
+    margin-top: 25px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    cursor: pointer; }
 
 footer {
-  padding-bottom: 100px; }
+  padding: 100px 0; }
   footer i {
     color: #EE394F; }
   footer p, footer small {
