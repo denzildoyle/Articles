@@ -421,8 +421,15 @@ hr.line{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	border: 1px solid white;
+	border: 1px solid #757575;
 	border-radius: 18px;
+	&:hover{
+		-webkit-transition: ease-out 1s;
+		-moz-transition: ease-out 1s;
+		-o-transition: ease-out 1s;
+		transition: ease-out 1s;
+		border: 1px solid #fff;
+	}
 }
 .scroll-btn .mouse > * {
 	position: absolute;
@@ -432,11 +439,14 @@ hr.line{
 	width: 4px;
 	height: 4px;
 	margin: -2px 0 0 -2px;
-	background: #ffffff;
+	background: #757575;
 	border-radius: 50%;
 	-webkit-animation: ani-mouse 2.5s linear infinite;
 	-moz-animation: ani-mouse 2.5s linear infinite;
 	animation: ani-mouse 2.5s linear infinite;
+	&:hover{
+		background: #fff;
+	}
 }
 
 .recommendation{
