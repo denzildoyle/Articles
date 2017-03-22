@@ -1,6 +1,11 @@
-var app = angular.module('app', ['ngProgress']);
+var app = angular.module('app', ['ngProgress','infinite-scroll']);
 
 app.controller('articleCtrl', function($scope, $location, $http,ngProgressFactory) {
+
+    $scope.recommendations = [];
+    $scope.numberToDisplay = 5;
+    $scope.results = [];
+  
 	$scope.progressbar = ngProgressFactory.createInstance();
 	$scope.progressbar.setHeight('3px');
 	$scope.progressbar.setColor('#BF3133');
@@ -10,13 +15,26 @@ app.controller('articleCtrl', function($scope, $location, $http,ngProgressFactor
 
     $http.get(url)
         .then(function(response){
-            $scope.recommendations = response.data.list;
+            var array = $.map(response.data.list, function(value, index) {
+                return [value];
+            });
+            $scope.results = array.reverse();
 			$scope.progressbar.complete();
         });
 
-        $scope.search = function(searchText){
-            $scope.searchText = searchText;
-        }
+    $scope.search = function(searchText){
+        $scope.searchText = searchText;
+    };
+
+    $scope.loadMore = function(){
+       if ($scope.numberToDisplay + 5 < $scope.results.length) {
+           $scope.numberToDisplay += 5;
+       } else {
+           $scope.numberToDisplay = $scope.results.length;
+       }
+    };
+
+
 });
 
 app.filter( 'domain', function () {
@@ -25,24 +43,6 @@ app.filter( 'domain', function () {
 		parser.href = input;
 		return parser.hostname;
 	};
-});
-
-app.filter('toArray', function () {
-  return function (obj, addKey) {
-    if (!angular.isObject(obj)) {return obj;}
-    if ( addKey === false ) {
-      return Object.keys(obj).map(function(key) {
-        return obj[key];
-      });
-    } else {
-      return Object.keys(obj).map(function (key) {
-        var value = obj[key];
-        return angular.isObject(value) ?
-          Object.defineProperty(value, '$key', { enumerable: false, value: key}) :
-          { $key: key, $value: value };
-      });
-    }
-  };
 });
 
 app.filter('trim', function () {

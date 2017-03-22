@@ -40,10 +40,12 @@
         <meta name="scooter" content="index, follow" />
         <meta name="boitho.com-dc" content="index, follow" />
         <meta name="sohu-search" content="index, follow" />
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
-        
-        <script src="js/ngprogress.min.js"></script>
-        <script src="js/article-controller.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+        <script type="text/javascript" src="js/ng-infinite-scroll.min.js"></script>
+        <script type="text/javascript" src="js/ngprogress.min.js"></script>
+        <script type="text/javascript" src="js/article-controller.js"></script>
         <!-- Google Analytics -->
         <script>
 
@@ -52,7 +54,7 @@
 
     </head>
   
-    <body ng-app="app" ng-controller="articleCtrl">
+    <body ng-app="app" ng-cloak ng-controller="articleCtrl">
         <div id="menu" ng-class="{'menu': !(!!searchText), 'menu search': (!!searchText)}">
             <div class="grid-container">
                 <div class="col-6">
@@ -105,9 +107,9 @@
             </span> -->
         </section>
         
-        <section id="recommendation">
+        <section id="recommendation" infinite-scroll="loadMore()" infinite-scroll-distance="3">
             <div class="grid-container">
-                <div ng-if="recommendation" ng-repeat="recommendation in recommendations | toArray:false | orderBy:'-' | filter:searchText">
+                <div  ng-if="recommendation" ng-repeat="recommendation in recommendations = (results | filter:searchText | limitTo:numberToDisplay) track by $index">
                     <div class="clearfix" ng-if="$index % 3 == 0"></div>
                     <article class="col-2 recommendation">
                         <img ng-show="{{recommendation.has_image == 1}}" src="{{recommendation.image.src}}">
@@ -132,7 +134,6 @@
             </div>
         </footer>
 
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="js/main.js"></script>
 
     </body>
