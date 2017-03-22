@@ -2354,13 +2354,9 @@
   position: fixed;
   z-index: 5;
   overflow: hidden;
-  opacity: 0;
-  -webkit-transition: ease-out .1s;
-  -moz-transition: ease-out .1s;
-  -o-transition: ease-out .1s;
-  transition: ease-out .1s; }
+  display: none; }
   .loading.active {
-    opacity: 1; }
+    display: block; }
   .loading h1 {
     font-family: 'Roboto', sans-serif;
     font-weight: bolder;
