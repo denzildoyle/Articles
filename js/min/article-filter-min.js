@@ -1,1 +1,0 @@
-var app=angular.module("app",[]);app.filter("domain",function(){return function(n){var a,r="",u=/\w+:\/\/([\w|\.]+)/;return a=u.exec(n),null!==a&&(r=a[1]),r}});

@@ -13,6 +13,10 @@ app.controller('articleCtrl', function($scope, $location, $http,ngProgressFactor
             $scope.recommendations = response.data.list;
 			$scope.progressbar.complete();
         });
+
+        $scope.search = function(searchText){
+            $scope.searchText = searchText;
+        }
 });
 
 app.filter( 'domain', function () {

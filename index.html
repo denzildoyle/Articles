@@ -53,16 +53,39 @@
     </head>
   
     <body ng-app="app" ng-controller="articleCtrl">
-        <section id="header">
-            <nav class="grid-container">
+        <div id="menu" ng-class="{'menu': !(!!searchText), 'menu search': (!!searchText)}">
+            <div class="grid-container">
                 <div class="col-6">
-                    <ul>
-                        <li><a href="">Subscribe</a></li>
-                        <li><a href="">About</a></li>
-                    </ul>
-                </div>
-            </nav> 
+                    <small class="instructions">Just start typing...</small>
+                    <input type="text" ng-model="searchText" placeholder="Search" id="search" autocomplete="off" autofocus>
+                    <small ng-show="searchText" ng-click="search('')" class="search-clear"><i class="fa fa-times-circle" aria-hidden="true"></i></small>
 
+                    <div ng-hide="searchText">
+                        <small>TOPICS</small>
+                        <ul>
+                            <li><a ng-click="search('Inspiration')">Inspiration</a></li>
+                            <li><a ng-click="search('Business')">Business</a></li>
+                            <li><a ng-click="search('Design')">Design</a></li>
+                            <li><a ng-click="search('Development')">Development</a></li>
+                            <li><a href="">About</a></li>
+                        </ul>
+
+                        <small>Connet with me</small>
+                        <ul>
+                            <li><a href="">Instagram</a></li>
+                            <li><a href="">Twitter</a></li>
+                            <li><a href="">Dribbble</a></li>
+                            <li><a href="">Github</a></li>
+                            <li><a href="">LinkedIn</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div> 
+        </div>
+
+        <a id="nav-toggle" href="#"><span></span></a>
+        <section id="header" class="active" ng-hide="searchText">
             <div class="vertical-center">
                 <div class="grid-container">
                     <div class="col-6 title">
@@ -72,7 +95,7 @@
                     </div>  
                 </div>
             </div>
-<!--             <span class="scroll-btn">
+            <!--<span class="scroll-btn">
                 <a href="#">
                     <span class="mouse">
                         <span></span>
@@ -84,7 +107,7 @@
         
         <section id="recommendation">
             <div class="grid-container">
-                <div ng-if="recommendation" ng-repeat="recommendation in recommendations | toArray:false | orderBy:'-'">
+                <div ng-if="recommendation" ng-repeat="recommendation in recommendations | toArray:false | orderBy:'-' | filter:searchText">
                     <div class="clearfix" ng-if="$index % 3 == 0"></div>
                     <article class="col-2 recommendation">
                         <img ng-show="{{recommendation.has_image == 1}}" src="{{recommendation.image.src}}">
