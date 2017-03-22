@@ -5,22 +5,36 @@ app.controller('articleCtrl', function($scope, $location, $http,ngProgressFactor
     $scope.recommendations = [];
     $scope.numberToDisplay = 5;
     $scope.results = [];
+    $scope.loading = true;
   
 	$scope.progressbar = ngProgressFactory.createInstance();
 	$scope.progressbar.setHeight('3px');
 	$scope.progressbar.setColor('#BF3133');
 	$scope.progressbar.start();
 
-	var url = "http://localhost/articles/api.php";
+	var articlesURL = "http://localhost/articles/api.php";
 
-    $http.get(url)
+    $http.get(articlesURL)
         .then(function(response){
             var array = $.map(response.data.list, function(value, index) {
                 return [value];
             });
             $scope.results = array.reverse();
 			$scope.progressbar.complete();
+            $scope.loading = false;
         });
+
+    var lastUpdatedURL = "http://localhost/articles/lastUpdated.php";
+    
+    $http.get(lastUpdatedURL)
+        .then(function(response){
+            var array = $.map(response.data.list, function(value, index) {
+                return [value];
+            });
+
+            $scope.lastUpdated = array[0].time_added;
+        });
+
 
     $scope.search = function(searchText){
         $scope.searchText = searchText;

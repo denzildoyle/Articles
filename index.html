@@ -55,6 +55,12 @@
     </head>
   
     <body ng-app="app" ng-cloak ng-controller="articleCtrl">
+        <div ng-class="{'loading active': loading , 'loading': !loading}">
+            <div class="vertical-center">
+                <h1 class="text-center">Loading Articles</h1>
+                <p class="text-center" ng-show="lastUpdated">Last update: {{lastUpdated * 1000 | date}}</p>
+            </div>
+        </div>
         <div id="menu" ng-class="{'menu': !(!!searchText), 'menu search': (!!searchText)}">
             <div class="grid-container">
                 <div class="col-6">

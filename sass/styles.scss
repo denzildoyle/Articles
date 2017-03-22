@@ -27,6 +27,33 @@
 ::-moz-selection {
   background: #FEE7B0;
 }
+
+.loading{
+	background-color: #131315;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	z-index: 5;
+	overflow: hidden;
+	opacity: 0;
+	-webkit-transition: ease-out .1s;
+	-moz-transition: ease-out .1s;
+	-o-transition: ease-out .1s;
+	transition: ease-out .1s;
+
+	&.active{
+		opacity: 1;
+	}
+
+	h1{
+		font-family: 'Roboto', sans-serif;
+		font-weight: bolder;
+		margin-bottom: 20px;
+	}
+}
+
 .menu{
 	display: none;
 	background-color: rgba(19,19,21,0.95);
@@ -182,7 +209,6 @@
     /*-- our gutter -- */
     padding-left: 17.5px; 
     padding-right: 17.5px; 
-    /*background-color: #FFDCDC;*/
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -219,6 +245,7 @@
 .pull-right{
 	float: right;
 }
+
 .text-center{
 	text-align: center;
 }
@@ -231,6 +258,7 @@
     width: 100%;
     height: 10px;
 }
+
 .accent{
 	color: #CD9208;
 }
@@ -423,16 +451,8 @@ hr.line{
 	width: 100%;
 	height: 100%;
 	display: none;
-			-webkit-transition: ease-out .5s;
-		-moz-transition: ease-out .5s;
-		-o-transition: ease-out .5s;
-		transition: ease-out .5s;
 	&.active{
 		display: block;
-				-webkit-transition: ease-out .5s;
-		-moz-transition: ease-out .5s;
-		-o-transition: ease-out .5s;
-		transition: ease-out .5s;
 	}
 }
 

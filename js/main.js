@@ -6,7 +6,6 @@ $(document).ready(function() {
 	// get copyright year
 	$('#year').html(today.getFullYear());
 
-
 	$('#nav-toggle').on('click', function(ev) {
 		$(this).toggleClass('active');
         $('#menu').toggleClass('active');
