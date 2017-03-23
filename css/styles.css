@@ -2427,13 +2427,13 @@
     margin: 0; }
 
 #nav-toggle {
-  margin: 50px;
-  padding: 0;
   position: fixed;
-  right: 0;
-  top: 0;
+  padding: 10px 35px 13px 0px;
+  right: 30px;
+  top: 30px;
   cursor: pointer;
-  z-index: 3; }
+  z-index: 3;
+  display: block; }
   #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
     position: absolute;
     height: 3px;

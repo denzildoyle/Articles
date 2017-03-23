@@ -125,13 +125,13 @@
 }
 
 #nav-toggle {
-	margin: 50px;
-	padding: 0;
-	position: fixed;
-	right: 0;
-	top: 0;
-	cursor: pointer;
-	z-index: 3;
+    position: fixed;
+    padding: 10px 35px 13px 0px;
+    right: 30px;
+    top: 30px;
+    cursor: pointer;
+    z-index: 3;
+    display: block;
 
 	& span, & span:before, & span:after {
 		position: absolute;
