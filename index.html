@@ -54,7 +54,7 @@
 
     </head>
   
-    <body ng-app="app" ng-cloak ng-controller="articleCtrl">
+    <body ng-app="app" ng-cloak ng-controller="articleCtrl" ng-class="{'overflow': (!!searchText)}">
         <div ng-class="{'loading active': loading , 'loading': !loading}">
             <div class="vertical-center">
                 <h1 class="text-center">Loading Articles</h1>
@@ -71,14 +71,13 @@
                     <div ng-hide="searchText">
                         <small>TOPICS</small>
                         <ul>
-                            <li><a ng-click="search('Inspiration')">Inspiration</a></li>
+                            <li><a ng-click="search('Productivity')">Productivity</a></li>
                             <li><a ng-click="search('Business')">Business</a></li>
                             <li><a ng-click="search('Design')">Design</a></li>
                             <li><a ng-click="search('Development')">Development</a></li>
-                            <li><a href="">About</a></li>
                         </ul>
 
-                        <small>Connet with me</small>
+                        <small>CONNECT WITH ME</small>
                         <ul>
                             <li><a href="">Instagram</a></li>
                             <li><a href="">Twitter</a></li>
@@ -86,6 +85,16 @@
                             <li><a href="">Github</a></li>
                             <li><a href="">LinkedIn</a></li>
                         </ul>
+
+                        <small>MORE</small>
+                        <ul>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Subscribe</a></li>
+                        </ul>
+                    </div>
+                    <div class="no-results" ng-show="(results | filter:searchText).length == 0">
+                        <h3>So sorry, we couldn't find any artiles matching <span class="accent">"{{searchText}}"</h3>
+                        <p>Why don't you take a look at popular topics like <span ng-click="search('Development')" class="accent">Development</span>, <span ng-click="search('Design')" class="accent">Design</span> or <span ng-click="search('Design')" class="accent">Business</span>?</p>
                     </div>
 
                 </div>

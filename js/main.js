@@ -7,12 +7,9 @@ $(document).ready(function() {
 	$('#year').html(today.getFullYear());
 
 	$('#nav-toggle').on('click', function(ev) {
-		$(this).toggleClass('active');
+        $(this).toggleClass('active');
         $('#menu').toggleClass('active');
         $( "#search" ).focus();
-    	ev.preventDefault();
-    	        $('html, body').stop().animate({
-            'scrollTop': $('#recommendation').offset().top
-        }, 1000, 'swing');
+        $('body').toggleClass('no-overflow');
 	});
 });
