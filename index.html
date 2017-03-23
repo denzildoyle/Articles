@@ -92,16 +92,14 @@
                             <li><a href="">Subscribe</a></li>
                         </ul>
                     </div>
-                    <div class="no-results" ng-show="(results | filter:searchText).length == 0">
-                        <h3>So sorry, we couldn't find any artiles matching <span class="accent">"{{searchText}}"</h3>
-                        <p>Why don't you take a look at popular topics like <span ng-click="search('Development')" class="accent">Development</span>, <span ng-click="search('Design')" class="accent">Design</span> or <span ng-click="search('Design')" class="accent">Business</span>?</p>
-                    </div>
-
                 </div>
             </div> 
         </div>
 
-        <a id="nav-toggle" href="#"><span></span></a>
+        <div class="mobile-nav">
+            <a id="nav-toggle" href="#"><span></span></a>
+        </div>
+
         <section id="header" class="active" ng-hide="searchText">
             <nav class="grid-container">
                 <div class="col-6">
@@ -142,6 +140,12 @@
                         <a class="button" target="_blank" href="{{recommendation.resolved_url}}">read article</a>
                         <a class="send-email" href="mailto:?Subject={{ recommendation.resolved_title }}&body={{recommendation.resolved_title + '%0D%0A %0D%0A' + recommendation.excerpt + '%0D%0A %0D%0A' + recommendation.resolved_url}}">Share via email</a>
                     </article>
+                </div>
+            </div>
+            <div class="no-results grid-container" ng-show="(results | filter:searchText).length == 0">
+                <div class="col-6">
+                    <h3>So sorry, we couldn't find any artiles matching <span class="accent">"{{searchText}}"</h3>
+                    <p>Why don't you take a look at popular topics like <span ng-click="search('Development')" class="accent">Development</span>, <span ng-click="search('Design')" class="accent">Design</span> or <span ng-click="search('Design')" class="accent">Business</span>?</p>
                 </div>
             </div>
         </section>
