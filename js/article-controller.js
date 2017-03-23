@@ -24,7 +24,7 @@ app.controller('articleCtrl', function($scope, $location, $http,ngProgressFactor
             $scope.loading = false;
         });
 
-    var lastUpdatedURL = "http://localhost/articles/lastUpdated.php";
+    var lastUpdatedURL = "http://localhost/articles/lastupdated.php";
     
     $http.get(lastUpdatedURL)
         .then(function(response){

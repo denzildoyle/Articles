@@ -2447,8 +2447,12 @@
     -o-transition: ease-in-out 300ms;
     transition: ease-in-out 300ms; }
   #nav-toggle span:before {
-    top: -10px; }
+    top: -8px; }
   #nav-toggle span:after {
+    bottom: -8px; }
+  #nav-toggle:hover span:before {
+    top: -10px; }
+  #nav-toggle:hover span:after {
     bottom: -10px; }
   #nav-toggle.active span {
     background-color: transparent; }
@@ -2959,6 +2963,11 @@ footer {
   [class*='col-'] {
     padding-left: 25px;
     padding-right: 20px; }
+
+  #nav-toggle span:before {
+    top: -10px; }
+  #nav-toggle span:after {
+    bottom: -10px; }
 
   .mobile {
     display: block; } }

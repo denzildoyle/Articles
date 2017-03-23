@@ -148,10 +148,18 @@
 	}
 
 	& span:before {
-		top: -10px;
+		top: -8px;
 	}
 
 	& span:after {
+		bottom: -8px;
+	}
+
+	&:hover span:before {
+		top: -10px;
+	}
+
+	&:hover span:after {
 		bottom: -10px;
 	}
 
@@ -705,6 +713,17 @@ footer{
 	    padding-left: 25px; 
 	    padding-right: 20px; 
 	}
+
+	#nav-toggle {
+		& span:before {
+			top: -10px;
+		}
+
+		& span:after {
+			bottom: -10px;
+		}
+	}
+
 
 	.mobile{
 		display: block;
