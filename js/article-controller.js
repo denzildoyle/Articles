@@ -22,6 +22,10 @@ app.controller('articleCtrl', function($scope, $location, $http,ngProgressFactor
             $scope.results = array.reverse();
 			$scope.progressbar.complete();
             $scope.loading = false;
+            
+            $('.title h5').addClass('animated fadeInDown');
+            $('.title h1').addClass('animated fadeInUp');
+            $('.title h6').addClass('animated fadeInUp');
         });
 
     var lastUpdatedURL = "http://localhost/articles/lastupdated.php";
