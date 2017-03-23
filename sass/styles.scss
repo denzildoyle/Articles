@@ -749,7 +749,26 @@ footer{
 			bottom: -10px;
 		}
 	}
+	nav{
+		display: none;
+	}
+	.title{
+		h5 {
+			letter-spacing: 1px;
+			margin-bottom: 30px;
+			font-size: 12px;
+		}
 
+		h1 {
+		    font-weight: bold;
+		    font-size: 40px;
+		    line-height: 46px;
+		}
+		h6{
+    		font-size: 14px;
+    		letter-spacing: 1px;
+		}
+	}
 
 	.mobile{
 		display: block;

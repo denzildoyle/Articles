@@ -9,7 +9,7 @@ $(document).ready(function() {
 	$('#nav-toggle').on('click', function(ev) {
         $(this).toggleClass('active');
         $('#menu').toggleClass('active');
-        $( "#search" ).focus();
+        $("#search" ).focus();
         $('body').toggleClass('no-overflow');
 	});
 });
