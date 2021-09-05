@@ -12,7 +12,7 @@ app.controller('articleCtrl', function($scope, $location, $http,ngProgressFactor
 	$scope.progressbar.setColor('#BF3133');
 	$scope.progressbar.start();
 
-	var articlesURL = "https://articles.denzildoyle.me/api.php";
+	var articlesURL = "https://api.denzildoyle.me/api.php";
     $http.get(articlesURL)
         .then(function(response){
             var array = $.map(response.data.list, function(value, index) {
@@ -27,7 +27,7 @@ app.controller('articleCtrl', function($scope, $location, $http,ngProgressFactor
             $('.title h6').addClass('animated fadeInUp');
         });
 
-    var lastUpdatedURL = "https://articles.denzildoyle.me/lastupdated.php";
+    var lastUpdatedURL = "https://api.denzildoyle.me/lastupdated.php";
     $http.get(lastUpdatedURL)
         .then(function(response){
             var array = $.map(response.data.list, function(value, index) {
