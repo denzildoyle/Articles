@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "articles-denzildoyle",
     "public": "/",
     "ignore": [
       "firebase.json",
