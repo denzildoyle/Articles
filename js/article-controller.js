@@ -13,7 +13,6 @@ app.controller('articleCtrl', function($scope, $location, $http,ngProgressFactor
 	$scope.progressbar.start();
 
 	var articlesURL = "https://articles.denzildoyle.me/api.php";
-
     $http.get(articlesURL)
         .then(function(response){
             var array = $.map(response.data.list, function(value, index) {
@@ -29,7 +28,6 @@ app.controller('articleCtrl', function($scope, $location, $http,ngProgressFactor
         });
 
     var lastUpdatedURL = "https://articles.denzildoyle.me/lastupdated.php";
-    
     $http.get(lastUpdatedURL)
         .then(function(response){
             var array = $.map(response.data.list, function(value, index) {
