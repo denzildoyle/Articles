@@ -1,13 +1,10 @@
 # Articles 
 
-A list of article I have read and been inspired by. 
+A list of articles I have read and been inspired by. 
 
-It’s been difficult to keep track of all of of the articles I have read but this way would make it a lot easier to find sources of previous inspiration and I could have to opportunity to share my list with others. 
+It’s been difficult to keep track of all of the articles I have read but this way would make it a lot easier to find sources of previous inspiration and I could have the opportunity to share my list with others. 
 
-![Articles Website](![image](https://github.com/denzildoyle/Articles/assets/1976977/f5339cff-8e10-4417-a443-1246d279186d)
- "Articles Website")
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://github.com/denzildoyle/React-Frontend-CC/assets/1976977/b4eced60-8e28-49d6-9de9-cafd74b673a1)
 
 ## License
 
